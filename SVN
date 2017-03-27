@@ -1,0 +1,27 @@
+Create Project:
+cd /var/www/svn
+
+mkdir -p /tmp/svn-template/{trunk,branches,tags}
+svnadmin create demo; svn import /tmp/svn-template/ file:///var/www/svn/demo -m 'create trunk,br apache:apache * -R
+
+SVN Merging: 
+
+ 942  svn co http://172.31.26.41/svn/demo
+  943  cd demo/
+  944  ls
+  945  cd trunk/
+  946  kls
+  947  ls
+  948  vim index
+  949  svn add index
+  950  svn commit -m 'new line'
+  951  vim index
+  952  svn commit -m 'new line'
+  953  cd ..
+  954  svn copy trunk/ branches/b1
+  955  vim branches/b1/index
+  956  svn commit -m 'b11'
+  957  svn update
+  958  cd trunk/
+  959  svn merge -c4 ../branches/b1/
+
